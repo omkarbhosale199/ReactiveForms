@@ -1,4 +1,5 @@
-<p>reactiveform1 </p>
+<div>
+  <p>reactiveform1 </p>
 <br>
 <p> Step -1 In app.module.ts file in import:[] import ReactiveFormsModule</p>
 <p>Step 0 create Html form </p>
@@ -7,25 +8,25 @@
 <p>inside formGroup formControls are available. </p>
 <p> in template driven form we use name="________" attribute and in reactive form <b>formControlName</b> ="_________" </p>
 <P>formControlName = In Angular Reactive Forms formControlName is a directive used to bind an existing 'FormControl'to an input element in template</P>
+</div>
+
 <br><br>
 <!-- Step 0 create Html form  -->
 <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()"> <!-- step 3 -->
 <!--   [formGroup]="name of formGroup Instance" which in written in method in ts file -->
 <div class="justify-content-center">
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" aria-describedby="emailHelp">
+    <label>Email address</label>
+    <input type="email" class="form-control" id="Email1" formControlName="email" placeholder="Email here">
     <!-- formControlName="email and inside ts file form control name should be same -->
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+    <input type="password" class="form-control" id="Password1" placeholder="password here" formControlName="password">
   </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary ml-3  " >Submit</button>
+
+  <button type="submit" class="btn btn-primary ml-3 mb-3  " >Submit</button>
 </div>
 </form>
+

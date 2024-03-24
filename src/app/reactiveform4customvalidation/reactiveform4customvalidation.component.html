@@ -1,0 +1,29 @@
+<h3>Custom validation</h3>
+<p> <b> in small tag    ----  >>  *ngIf =    formGroup.method.('control').property  </b></p>
+<div class="container justify-content center">
+<form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()">
+
+    <div class=" mb-3">
+      <label>Email address</label>
+      <input type="email"  id="Email1" class="form-control  mt-2"  formControlName="email"placeholder="Email here"   >
+      <!-- if email text box touched && email field is not valid -->
+      <!-- from form we need to finding control there is method name is --- >> get -->
+      <small *ngIf="!myReactiveForm.get('email')?.valid && myReactiveForm.get('email')?.touched">
+        <!--  *ngIf =    formGroup.method.('control').property -->
+        <!-- don't forget to apply '' on control -->
+        <small class="text-danger " *ngIf="myReactiveForm.get('email')?.errors?.['required']">Email field is required</small>
+        <small class="bg-danger-subtle text-danger-emphasis  " *ngIf="myReactiveForm.get('email')?.errors?.['minlength']">length should be more than 8 characters</small>
+        <small class="text-danger  bg-danger-subtle " *ngIf="myReactiveForm.get('email')?.errors?.['maxlength']">Length should be less than 30 characters</small>
+
+      </small>
+
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password"  id="Password1" class="form-control"  formControlName="password"placeholder="password here" >
+    </div>
+
+    <div class=" mb-2 text-center"><button type="submit" class="btn btn-primary " >Submit</button></div>
+
+  </form>
+</div>
