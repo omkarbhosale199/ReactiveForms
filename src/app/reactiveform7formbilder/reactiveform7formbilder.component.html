@@ -1,5 +1,8 @@
-<h3>Custom validation</h3>
-<p> <b> in small tag    ----  >>  *ngIf =    formGroup.method.('control').property  </b></p>
+<p>What formBuilder ?
+FormBuilder is one kind of helper class It provides shortcuts to create the instance of the FormControl, FromGroup or FormArray.</p>
+
+<h3>reactiveform7 using form FormBuilder</h3>
+<p><b> formGroupName is grouping form controls</b></p>
 <div class="container justify-content center">
 <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()">
 
@@ -15,7 +18,7 @@
         <small class="bg-danger-subtle text-danger-emphasis  " *ngIf="myReactiveForm.get('email')?.errors?.['minlength']">length should be more than 8 characters</small>
         <small class="text-danger  bg-danger-subtle " *ngIf="myReactiveForm.get('email')?.errors?.['maxlength']">Length should be less than 30 characters</small>
         <small class="text-danger" *ngIf="myReactiveForm.get('email')?.errors?.['emailNotAllowedIs']">This mail id already exist please try anther</small>
-        
+
       </small>
 
     </div>
@@ -23,8 +26,33 @@
       <label for="exampleInputPassword1" class="form-label">Password</label>
       <input type="password"  id="Password1" class="form-control"  formControlName="password"placeholder="password here" >
     </div>
+    <!-- nested form making........ -->
+<div formGroupName="address">
+<div class="row  mt-2">
+  <div class="col">
+    <!-- use dropdown with array and bind with *ngFor  -->
+    <input type="text"  id="1" formControlName="state" class="form-control" placeholder="enter state">
+  </div>
+  <div class="col">
+    <input type="text" id="2" formControlName="District" class="form-control" placeholder="enter District">
+  </div>
+  <div class="col">
+    <input type="text" id="3" formControlName="Taluka" class="form-control" placeholder="enter Taluka">
+  </div>
+  <div class="col">
+    <input type="text" id="4" formControlName="village" class="form-control" placeholder="enter village">
+  </div>
+</div>
 
-    <div class=" mb-2 text-center"><button type="submit" class="btn btn-primary " >Submit</button></div>
+</div>
+<div class="form-group" formArrayName="hobbies">
+<div *ngFor="let hobby of hobbiesFormArray.controls; let i = index">
+<label>Hobby  {{i + 1}}</label>
+<input class="form-control" type="text" formControlName="{{i}}" placeholder="Enter hobby">
+</div>
+  <button (click)="addHobby()" class="btn btn-success mt-2">Add Hobby</button>
+   </div>
+    <div class=" mb-2 mt-2 text-center"><button type="submit" class="btn btn-primary " >Submit</button></div>
 
   </form>
 </div>

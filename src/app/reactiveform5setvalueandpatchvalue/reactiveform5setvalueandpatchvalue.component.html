@@ -1,5 +1,6 @@
-<h3>Custom validation</h3>
+<h3>reactiveform5 setValue() and patchValue()</h3>
 <p> <b> in small tag    ----  >>  *ngIf =    formGroup.method.('control').property  </b></p>
+<p> <b> in small tag    ----  >>  To set default value in placeholder </b></p>
 <div class="container justify-content center">
 <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()">
 
@@ -15,7 +16,7 @@
         <small class="bg-danger-subtle text-danger-emphasis  " *ngIf="myReactiveForm.get('email')?.errors?.['minlength']">length should be more than 8 characters</small>
         <small class="text-danger  bg-danger-subtle " *ngIf="myReactiveForm.get('email')?.errors?.['maxlength']">Length should be less than 30 characters</small>
         <small class="text-danger" *ngIf="myReactiveForm.get('email')?.errors?.['emailNotAllowedIs']">This mail id already exist please try anther</small>
-        
+
       </small>
 
     </div>

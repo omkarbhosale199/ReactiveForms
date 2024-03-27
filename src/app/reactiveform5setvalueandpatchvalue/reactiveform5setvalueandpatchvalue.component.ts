@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-reactiveform4customvalidation',
-  templateUrl: './reactiveform4customvalidation.component.html',
-  styleUrls: ['./reactiveform4customvalidation.component.css']
+  selector: 'app-reactiveform5setvalueandpatchvalue',
+  templateUrl: './reactiveform5setvalueandpatchvalue.component.html',
+  styleUrls: ['./reactiveform5setvalueandpatchvalue.component.css']
 })
-export class Reactiveform4customvalidationComponent implements OnInit {
+export class Reactiveform5setvalueandpatchvalueComponent implements OnInit {
 
   myReactiveForm!:FormGroup;
 
@@ -16,6 +16,19 @@ export class Reactiveform4customvalidationComponent implements OnInit {
   }
 
  ngOnInit(): void {
+
+  // We use the setValue() function when we want to update all the controls of the form.
+
+// this.myReactiveForm.setValue({
+//   'email':'abcxyz@gmail.com',
+//   'password':'123edrftg'
+// })
+
+// We use the patchValue() function when we do not want to update all the controls of the reactive form
+this.myReactiveForm.patchValue({
+  'email':'abcxyz@gmail.com',
+
+})
  }
 
 RevisionOfReactiveForm(){
@@ -47,4 +60,6 @@ emailNotAllow(control:FormControl) : ValidationErrors| null{
 
   return null
 }
+
+
 }
