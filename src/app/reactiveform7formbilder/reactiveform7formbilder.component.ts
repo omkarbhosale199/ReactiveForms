@@ -31,7 +31,11 @@ export class Reactiveform7formbilderComponent implements OnInit {
 
  })
   }
-  // Getter for easier access to hobbies from array.
+  //  from array concept
+  // note- revision also getter,setter method
+  // whenever  using getter, it always return something
+  // Getter for easier access to hobbies from array.because we can not access directly hobbies inside myReactiveForm with the help of addHobby method
+  // in this case getter give hobbies array
   get hobbiesFormArray() {
     return this.myReactiveForm.get('hobbies') as FormArray;
    }
@@ -54,6 +58,12 @@ export class Reactiveform7formbilderComponent implements OnInit {
  onSubmit(){
   console.log(this.myReactiveForm);
  }
+ addHobby(){
+  this.hobbiesFormArray.push(new FormControl(''));
+}
+
+
+
 
  // Custom validation
  // return type of --- >>>  ValidationErrors| null  --->>   is union
@@ -72,9 +82,7 @@ export class Reactiveform7formbilderComponent implements OnInit {
    return null
  }
 
- addHobby(){
-  this.hobbiesFormArray.push(new FormControl(''));
-}
+
 
 
 }
